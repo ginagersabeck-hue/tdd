@@ -67,6 +67,25 @@ class TestGetData(unittest.TestCase):
 
         self.assertEqual(result, (expected_header, expected_rows))
 
+    def test_query_rows_with_header(self):
+        file_name = "test/data/test_co2.csv"
+
+        result = fire_gdp.get_data(
+            file_name,
+            query_column="Area",
+            query_value="Brazil",
+            return_header=True
+        )
+
+        expected_header = ["Area", "Year", "Forest fires", "Other column"]
+        expected_rows = [
+            ["Brazil", "2000", "100.5", "50"],
+            ["Brazil", "2001", "110.0", "55"],
+            ["Brazil", "2002", "", "60"]
+        ]
+
+        self.assertEqual(result, (expected_header, expected_rows))
+
 
 if __name__ == '__main__':
     unittest.main()
