@@ -120,6 +120,22 @@ class TestGetFireGdpYearData(unittest.TestCase):
 
         self.assertEqual(result, expected)
 
+    def test_skip_year_missing_from_gdp_header(self):
+        co2_file = "test/data/test_co2.csv"
+        gdp_file = "test/data/test_gdp_missing_year.csv"
+
+        result = fire_gdp.get_fire_gdp_year_data(
+            co2_file,
+            gdp_file,
+            "Brazil"
+        )
+
+        expected = [
+            [2000, 100.5, 1000.0]
+        ]
+
+        self.assertEqual(result, expected)
+
     
 if __name__ == '__main__':
     unittest.main()
