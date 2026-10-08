@@ -37,6 +37,21 @@ class TestGetData(unittest.TestCase):
             ["Canada", "2001", "25.5", "35"]
         ]
         self.assertEqual(result, expected)
+        
+    def test_query_rows(self):
+        file_name = "test/data/test_co2.csv"
+        result = fire_gdp.get_data(
+            file_name,
+            query_column="Area",
+            query_value="Brazil"
+        )
+        expected = [
+            ["Brazil", "2000", "100.5", "50"],
+            ["Brazil", "2001", "110.0", "55"],
+            ["Brazil", "2002", "", "60"]
+        ]
+        self.assertEqual(result, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

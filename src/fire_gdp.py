@@ -8,6 +8,11 @@ def get_data(file_name,
         reader = csv.reader(file)
         header = next(reader)
         rows = list(reader)
+
+    if query_column is not None and query_value is not None:
+        column_index = get_column_index(header, query_column)
+        rows = [row for row in rows if row[column_index] == query_value]
+
     return rows
 
 def get_column_index(header, column_name):
