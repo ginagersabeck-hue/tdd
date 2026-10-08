@@ -13,6 +13,8 @@ def get_data(file_name,
         column_index = get_column_index(header, query_column)
         rows = [row for row in rows if row[column_index] == query_value]
 
+    if return_header:
+        return header, rows
     return rows
 
 def get_column_index(header, column_name):
