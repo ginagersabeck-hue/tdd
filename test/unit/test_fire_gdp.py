@@ -1,13 +1,18 @@
 import os
 import sys
 import unittest
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../src'))
+
 import fire_gdp 
 
 
 class TestGetColumnIndex(unittest.TestCase):
 
     def test_name_present(self):
-        pass
+        header = ["Country", "Year", "GDP"]
+        result = fire_gdp.get_column_index(header, "Year")
+        self.assertEqual(result, 1)
 
 if __name__ == '__main__':
     unittest.main()
