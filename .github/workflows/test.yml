@@ -1,0 +1,39 @@
+
+name: Unit and functional tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  run_unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          init-shell: bash
+
+      - name: Run unit tests
+        run: python test/unit/test_fire_gdp.py
+
+  run_functional_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          init-shell: bash
+
+      - name: Run functional tests
+        run: bash test/func/test_fire_gdp.sh
