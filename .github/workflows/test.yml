@@ -1,6 +1,9 @@
 name: Unit and functional tests
 
 on:
+name: Unit and functional tests
+
+on:
   push:
     branches: [main]
   pull_request:
@@ -40,5 +43,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install snakemake pandas pycodestyle pytest
 
+      - name: Download test datasets
+        run: |
+          mkdir -p data
+          curl -L "https://docs.google.com/uc?export=download&id=1AsXP_OGs1O_TDeXiZjk3fYV1SrG4vwXF" -o data/Agrofood_co2_emission.csv
+          curl -L "https://docs.google.com/uc?export=download&id=19YEPysdnK7VCXuAe9Og9pwYkNT5CbQzr" -o data/IMF_GDP.csv
+
       - name: Run functional tests
         run: bash test/func/test_fire_gdp.sh
+    
