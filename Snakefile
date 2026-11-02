@@ -3,13 +3,11 @@ import pandas as pd
 agro_df = pd.read_csv("data/Agrofood_co2_emission.csv")
 gdp_df = pd.read_csv("data/IMF_GDP.csv")
 
-# Get intersection of country names
 agro_countries = set(agro_df['Area'].unique())
 gdp_countries = set(gdp_df['Country'].unique())
 COUNTRIES = sorted(list(agro_countries.intersection(gdp_countries)))
 
-# Countries known to lack valid overlapping data in scatter.py
-exclude_countries = ["San Marino"]  # Add any others here if they pop up!
+exclude_countries = ["San Marino"]
 COUNTRIES = [c for c in COUNTRIES if c not in exclude_countries]
 rule all:
     input:

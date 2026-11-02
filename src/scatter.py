@@ -1,11 +1,8 @@
-
-import argparse
-
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-
 from fire_gdp import get_fire_gdp_year_data
+import argparse
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use("Agg")
 
 
 def main():
