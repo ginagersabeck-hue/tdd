@@ -1,9 +1,9 @@
 import os
 import sys
 import unittest
-import fire_gdp
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../src'))
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../src'))
+import fire_gdp
 
 class TestGetColumnIndex(unittest.TestCase):
 
