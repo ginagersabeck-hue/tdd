@@ -1,9 +1,6 @@
 name: Unit and functional tests
 
 on:
-name: Unit and functional tests
-
-on:
   push:
     branches: [main]
   pull_request:
