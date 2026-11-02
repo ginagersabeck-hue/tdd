@@ -27,7 +27,7 @@ Brazil had a pretty sporadic pattern, and there was no obvious relationship betw
 Other plot examples:
 ![Albania forest-fire emissions versus GDP](results/Albania.png)
 ![Algeria forest-fire emissions versus GDP](results/Algeria.png)
-![Sweden forest-fire emissions versus GDP](results/Sweden.png)
+![Sweden forest-fire emissions versus GDP](results/Algeria.png)
 
 
 ### What I found overall
@@ -36,21 +36,20 @@ Based on these plots, my hypothesis was not consistently supported. Brazil showe
 
 ## Reproducing the Analysis
 
+
+
 Download the datasets into the `data/` directory:
 
 ```bash
 mkdir -p data
-curl -L "https://docs.google.com/uc?export=download&id=1AsXP_OGs1O_TDeXiZjk3fYV1SrG4vwXF" -o data/Agrofood_co2_emission.csv
-curl -L "https://docs.google.com/uc?export=download&id=19YEPysdnK7VCXuAe9Og9pwYkNT5CbQzr" -o data/IMF_GDP.csv
+curl -L "[https://docs.google.com/uc?export=download&id=1AsXP_OGs1O_TDeXiZjk3fYV1SrG4vwXF](https://docs.google.com/uc?export=download&id=1AsXP_OGs1O_TDeXiZjk3fYV1SrG4vwXF)" -o data/Agrofood_co2_emission.csv
+curl -L "[https://docs.google.com/uc?export=download&id=19YEPysdnK7VCXuAe9Og9pwYkNT5CbQzr](https://docs.google.com/uc?export=download&id=19YEPysdnK7VCXuAe9Og9pwYkNT5CbQzr)" -o data/IMF_GDP.csv
 ```
-
+Run the automated Snakemake pipeline from the repository's root directory to dynamically compute valid country intersections, generate all country scatter plots, and compile the summary ranking file:
 Generate the plots from the repository's root directory:
 
 ```bash
-mkdir -p results
-python src/scatter.py --country Brazil --out results/brazil.png
-python src/scatter.py --country Canada --out results/canada.png
-python src/scatter.py --country Australia --out results/australia.png
+snakemake -c1
 ```
 
 Run the tests:
