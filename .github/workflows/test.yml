@@ -1,6 +1,9 @@
 name: Unit and functional tests
 
 on:
+name: Unit and functional tests
+
+on:
   push:
     branches: [main]
   pull_request:
@@ -16,7 +19,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -35,7 +37,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
