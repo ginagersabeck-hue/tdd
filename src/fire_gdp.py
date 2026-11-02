@@ -1,5 +1,6 @@
 import csv
 
+
 def get_data(file_name,
              query_column=None,
              query_value=None,
@@ -17,11 +18,13 @@ def get_data(file_name,
         return header, rows
     return rows
 
+
 def get_column_index(header, column_name):
     try:
         return header.index(column_name)
     except ValueError:
         return None
+
 
 def get_fire_gdp_year_data(co2_file, gdp_file, country):
     co2_header, co2_rows = get_data(

@@ -1,10 +1,8 @@
 import os
 import sys
 import unittest
-
+import fire_gdp
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../src'))
-
-import fire_gdp 
 
 
 class TestGetColumnIndex(unittest.TestCase):
@@ -23,7 +21,8 @@ class TestGetColumnIndex(unittest.TestCase):
         header = []
         result = fire_gdp.get_column_index(header, "Year")
         self.assertIsNone(result)
-        
+
+
 class TestGetData(unittest.TestCase):
 
     def test_get_all_rows(self):
@@ -37,7 +36,7 @@ class TestGetData(unittest.TestCase):
             ["Canada", "2001", "25.5", "35"]
         ]
         self.assertEqual(result, expected)
-        
+
     def test_query_rows(self):
         file_name = "test/data/test_co2.csv"
         result = fire_gdp.get_data(
@@ -85,6 +84,7 @@ class TestGetData(unittest.TestCase):
         ]
 
         self.assertEqual(result, (expected_header, expected_rows))
+
 
 class TestGetFireGdpYearData(unittest.TestCase):
 
@@ -136,6 +136,6 @@ class TestGetFireGdpYearData(unittest.TestCase):
 
         self.assertEqual(result, expected)
 
-    
+
 if __name__ == '__main__':
     unittest.main()
